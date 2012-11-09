@@ -1,0 +1,15 @@
+<div class="span12">
+				<div class="msg_conrainer_header">
+					<span class="msg_header_icon"><img src="../images/glyphicons_244_conversation.png"></span>
+					<span class="msg_header"><h2>Сообщения</h2></span>
+				</div>
+				<div class="msg_container" id = "chat">
+				<%= render @messages %>
+				</div>
+					<div class="msg_input_container">
+						<%= form_for Message.new, :remote => true do |f| %>
+  							<%= f.text_field :content,:id => "new_message", :class => "msg_input", :placeholder => "Введите сообщение…"%>	
+  							<%= f.submit "Отправить", :class=>"btn btn-primary msg-btn" %>
+						<% end %>
+					</div>
+			</div>

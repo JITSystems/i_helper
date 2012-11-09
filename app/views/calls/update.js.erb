@@ -1,0 +1,11 @@
+$("#calls_up_Modal").modal('show');
+$('#fio_field_up').val('<%= @call.fio%>');
+$('#time_field_up').val('<%= @call.time%>');
+$('#theme_field_up').val('<%= @call.theme%>');
+
+$("#calls_up_sbm").click(function() {
+	<% Call.find(@call.id).destroy %>
+	<% broadcast "/messages/new" do %>
+	$("#cl_holder > #<%= @call.id %>").slideUp();
+ 	<% end %>
+});

@@ -1,0 +1,33 @@
+<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"/>
+					<span class="icon-bar"/>
+					<span class="icon-bar"/>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="span6" style="height:265px; width:260px;">
+				<div class="msg_conrainer_header msg_container_cv">
+					<span class="msg_header"><h2>Вход в систему</h2></span>
+				</div>
+				<div class="msg_container" style="height:500px;">
+						<%= form_tag sessions_path do %>
+							<div class="modal-body">
+  							<%= label_tag "Имя пользователя:" %>
+  							<%= text_field_tag :login, params[:login], :placeholder => "Введите имя пользователя..." %>
+  							<%= label_tag "Пароль:" %>
+  							<%= password_field_tag :password, "" ,:placeholder => "Введите пароль..." %>
+  							<%= submit_tag "Вход", :class => "btn btn-primary" %>
+  							</div>
+    						
+    					<% end %>
+				</div>
+			</div>
+			
+			</div>
+	</div>

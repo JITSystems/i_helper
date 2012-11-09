@@ -1,0 +1,3 @@
+<% broadcast "/messages/new" do %>
+  $("#vs_holder > #<%= @visitor.id %>").slideUp();
+<% end %>

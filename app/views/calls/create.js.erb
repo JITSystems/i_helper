@@ -1,0 +1,5 @@
+<% broadcast "/messages/new" do %>
+  $("#cl_holder").prepend("<%= escape_javascript render(@call) %>");
+<% end %>
+$("#new_call")[0].reset();
+

@@ -1,0 +1,33 @@
+<div class="span6">
+	<div class="msg_conrainer_header">
+		<span class="msg_header_icon"><img src="../images/glyphicons_336_iphone_shake.png"></span>
+		<span class="msg_header"><h2>Звонки</h2></span>
+		<button class="btn btn-primary" onclick="$('#callsModal').modal('show')">Добавить</button>
+	</div>
+	
+	<div class="msg_container msg_container_cv" id = "cl_holder">
+	<%= render @calls %>
+	</div>
+</div>
+
+<div class="modal hide fade" id="callsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">Добавить звонок</h3>
+	</div>
+	
+	<div class="modal-body">
+		<%= form_for Call.new, :remote => true do |f| %>
+		<%= f.label "ФИО:" %>
+		<%= f.text_field :fio, :id => "fio_field",  :placeholder => "Введите ФИО..." %>
+		<%= f.label "Время:" %>
+		<%= f.text_field :time, :id => "time_field" , :placeholder => "Введите время звонка..." %>
+		<%= f.label "Тема:" %>
+		<%= f.text_field :theme, :id => "theme_field", :placeholder => "Введите тему звонка..." %>
+	</div>
+	
+	<div class="modal-footer">
+		<%= f.submit "Отправить", :class=>"btn btn-primary", :onclick => "$('#callsModal').modal('hide')" %>
+		<% end %>
+	</div>
+</div>

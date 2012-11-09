@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  fio: MyString
+  time: MyString
+  theme: MyString
+  user_id: 1
+
+two:
+  fio: MyString
+  time: MyString
+  theme: MyString
+  user_id: 1

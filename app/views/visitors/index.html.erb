@@ -1,0 +1,32 @@
+<div class="span6">
+	<div class="msg_conrainer_header">
+		<span class="msg_header_icon"><img src="../images/glyphicons_043_group.png"></span>
+		<span class="msg_header"><h2>Посетители</h2></span>
+		<button class="btn btn-primary" onclick="$('#visitorsModal').modal('show')">Добавить</button>
+	</div>
+	
+	<div class="msg_container msg_container_cv" id="vs_holder">
+		<%= render @visitors %>			
+	</div>
+</div>
+
+<div class="modal hide fade" id="visitorsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">Добавить посетителя</h3>
+	</div>
+<div class="modal-body">
+		<%= form_for Visitor.new, :remote => true do |f| %>
+		<%= f.label "ФИО:" %>
+		<%= f.text_field :fio, :id => "fio_field",  :placeholder => "Введите ФИО..." %>
+		<%= f.label "Время:" %>
+		<%= f.text_field :time, :id => "time_field" , :placeholder => "Введите время визита..." %>
+		<%= f.label "Тема:" %>
+		<%= f.text_field :theme, :id => "theme_field", :placeholder => "Введите тему визита..." %>
+	</div>
+	
+	<div class="modal-footer">
+		<%= f.submit "Отправить", :class=>"btn btn-primary", :onclick => "$('#visitorsModal').modal('hide')" %>
+		<% end %>
+	</div>
+</div>

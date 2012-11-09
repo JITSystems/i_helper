@@ -1,0 +1,3 @@
+<% broadcast "/messages/new" do %>
+  $("#chat > #<%= @message.id %>").slideUp();
+<% end %>

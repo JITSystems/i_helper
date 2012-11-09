@@ -1,0 +1,39 @@
+<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"/>
+					<span class="icon-bar"/>
+					<span class="icon-bar"/>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="span6" style="height:460px; width:260px;">
+				<div class="msg_conrainer_header msg_container_cv">
+					<span class="msg_header"><h2>Регистрация</h2></span>
+				</div>
+				<div class="msg_container" style="height:500px;">
+						<%= form_for @user do |f| %>
+							<div class="modal-body">
+  							<%= f.label "Имя пользователя:" %>
+  							<%= f.text_field :login, :placeholder => "Введите имя пользователя..." %>
+  							<%= f.label "Пароль:" %>
+  							<%= f.password_field :password, :placeholder => "Введите пароль..." %>
+  							<%= f.label "Подтвердите пароль:" %>
+  							<%= f.password_field :password_confirmation, :placeholder => "Подтвердите пароль..." %>
+  							<%= f.label "Пользовательская группа:" %>
+  							<%= f.text_field :group_id, :placeholder => "Введите № группы..."%>
+  							<%= f.label "Роль пользователя:" %>
+  							<%= f.text_field :role_id, :placeholder => "Введите id роли..." %>
+  							<%= f.submit "Зарегистрировать", :class => "btn btn-primary" %>
+  							</div>
+    						
+    					<% end %>
+				</div>
+			</div>
+			
+			</div>
+	</div>

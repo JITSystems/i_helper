@@ -1,0 +1,14 @@
+$("#visitors_up_Modal").modal('show');
+$('#v_fio_field_up').val('<%= @visitor.fio%>');
+$('#v_time_field_up').val('<%= @visitor.time%>');
+$('#v_theme_field_up').val('<%= @visitor.theme%>');
+
+ 
+$("#visitors_up_sbm").click(function() {
+	<% Visitor.find(@visitor.id).destroy %>
+	<% broadcast "/messages/new" do %>
+	$("#vs_holder > #<%= @visitor.id %>").slideUp();
+ 	<% end %>
+});
+
+

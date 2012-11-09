@@ -1,0 +1,5 @@
+<div class="message" id="<%= message.id%>"><%= message.created_at.strftime("%H:%M") %>
+<span style="font-weight:bold;"><%= message.user.login %></span>
+<span><%= message.content %></span>
+<span class="msg_del_ico" style="float:right"><%=link_to 'Destroy', message, method: :delete, remote: true %></span>
+</div>

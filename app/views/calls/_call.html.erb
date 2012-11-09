@@ -1,0 +1,9 @@
+<div class="message" id="<%= call.id %>">
+	<span><%= call.created_at.strftime("%H:%M") %></span>
+	<span><%= call.fio %></span>
+	<span><%= call.time %></span>
+	<span><%= call.theme %></span>
+	<span class="msg_del_ico" style="float:right; margin-left:5px;"><%=link_to 'Destroy', call, method: :delete, remote: true %></span>
+	<span class="msg_del_ico" style="float:right"><%=link_to 'Edit', call, method: :put, remote: true %></span>
+	
+</div>

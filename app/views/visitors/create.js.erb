@@ -1,0 +1,6 @@
+<% broadcast "/messages/new" do %>
+  $("#vs_holder").prepend("<%= escape_javascript render(@visitor) %>");
+<% end %>
+$("#new_visitor")[0].reset();
+
+

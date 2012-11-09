@@ -1,0 +1,143 @@
+<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"/>
+					<span class="icon-bar"/>
+					<span class="icon-bar"/>
+				</a>
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li><a href="#">Оповещения</a></li>
+						<li><a href="#">Календарь</a></li>
+						<li><a href="#">Дата</a></li>
+						<li><a href="#">Настройки</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+<div class="span6">
+	<div class="msg_conrainer_header">
+		<span class="msg_header_icon"><img src="../images/glyphicons_336_iphone_shake.png"></span>
+		<span class="msg_header"><h2>Звонки</h2></span>
+		<button class="btn btn-primary" onclick="$('#callsModal').modal('show')">Добавить</button>
+	</div>
+	
+	<div class="msg_container msg_container_cv" id = "cl_holder">
+	<%= render @calls %>
+	</div>
+</div>
+
+<div class="modal hide fade" id="callsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">Добавить звонок</h3>
+	</div>
+	
+	<div class="modal-body">
+		<%= form_for Call.new, :remote => true do |f| %>
+		<%= f.label "ФИО:" %>
+		<%= f.text_field :fio, :id => "fio_field",  :placeholder => "Введите ФИО..." %>
+		<%= f.label "Время:" %>
+		<%= f.text_field :time, :id => "time_field" , :placeholder => "Введите время звонка..." %>
+		<%= f.label "Тема:" %>
+		<%= f.text_field :theme, :id => "theme_field", :placeholder => "Введите тему звонка..." %>
+	</div>
+	
+	<div class="modal-footer">
+		<%= f.submit "Отправить", :class=>"btn btn-primary", :onclick => "$('#callsModal').modal('hide')" %>
+		<% end %>
+	</div>
+</div>
+<div class="modal hide fade" id="calls_up_Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<h3 id="myModalLabel">Изменить звонок</h3>
+	</div>
+	
+	<div class="modal-body">
+		<%= form_for(Call.new, :remote => true) do |f| %>
+		<%= f.label "ФИО:" %>
+		<%= f.text_field :fio, :id => "fio_field_up" %>
+		<%= f.label "Время:" %>
+		<%= f.text_field :time, :id => "time_field_up"  %>
+		<%= f.label "Тема:" %>
+		<%= f.text_field :theme, :id => "theme_field_up"  %>
+	</div>
+	
+	<div class="modal-footer">
+		<%= f.submit "Изменить", :class=>"btn btn-primary", :onclick => "$('#calls_up_Modal').modal('hide');", :id => "calls_up_sbm" %>
+		<% end %>
+	</div>
+</div>
+<div class="span6">
+	<div class="msg_conrainer_header">
+		<span class="msg_header_icon"><img src="../images/glyphicons_043_group.png"></span>
+		<span class="msg_header"><h2>Посетители</h2></span>
+		<button class="btn btn-primary" onclick="$('#visitorsModal').modal('show')">Добавить</button>
+	</div>
+	
+	<div class="msg_container msg_container_cv" id="vs_holder">
+		<%= render @visitors %>			
+	</div>
+</div>
+
+<div class="modal hide fade" id="visitorsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">Добавить посетителя</h3>
+	</div>
+<div class="modal-body">
+		<%= form_for Visitor.new, :remote => true do |f| %>
+		<%= f.label "ФИО:" %>
+		<%= f.text_field :fio, :id => "fio_field",  :placeholder => "Введите ФИО..." %>
+		<%= f.label "Время:" %>
+		<%= f.text_field :time, :id => "time_field" , :placeholder => "Введите время визита..." %>
+		<%= f.label "Тема:" %>
+		<%= f.text_field :theme, :id => "theme_field", :placeholder => "Введите тему визита..." %>
+	</div>
+	
+	<div class="modal-footer">
+		<%= f.submit "Отправить", :class=>"btn btn-primary", :onclick => "$('#visitorsModal').modal('hide')" %>
+		<% end %>
+	</div>
+</div>
+<div class="modal hide fade" id="visitors_up_Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<h3 id="myModalLabel">Изменить посетителя</h3>
+	</div>
+	
+	<div class="modal-body">
+		<%= form_for(Visitor.new, :remote => true) do |f| %>
+		<%= f.label "ФИО:" %>
+		<%= f.text_field :fio, :id => "v_fio_field_up" %>
+		<%= f.label "Время:" %>
+		<%= f.text_field :time, :id => "v_time_field_up"  %>
+		<%= f.label "Тема:" %>
+		<%= f.text_field :theme, :id => "v_theme_field_up"  %>
+	</div>
+	
+	<div class="modal-footer">
+		<%= f.submit "Изменить", :class=>"btn btn-primary", :onclick => "$('#visitors_up_Modal').modal('hide')", :id => "visitors_up_sbm" %>
+		<% end %>
+	</div>
+</div>
+<div class="span12">
+				<div class="msg_conrainer_header">
+					<span class="msg_header_icon"><img src="../images/glyphicons_244_conversation.png"></span>
+					<span class="msg_header"><h2>Сообщения</h2></span>
+				</div>
+				<div class="msg_container" id = "chat">
+				<%= render @messages %>
+				</div>
+					<div class="msg_input_container">
+						<%= form_for Message.new, :remote => true do |f| %>
+  							<%= f.text_field :content,:id => "new_message", :class => "msg_input", :placeholder => "Введите сообщение…"%>	
+  							<%= f.submit "Отправить", :class=>"btn btn-primary msg-btn" %>
+						<% end %>
+					</div>
+			</div>
+		</div>
+	</div>
